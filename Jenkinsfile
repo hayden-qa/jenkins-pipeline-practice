@@ -1,45 +1,33 @@
 pipeline {
     agent any
-
     stages {
-        stage('1. 인사하기') {
+        stage('Checkout') {
             steps {
-                echo '안녕하세요! Pipeline을 시작합니다.'
-                echo '이건 첫 번째 Stage예요.'
+                echo 'Checking out source code...'
             }
         }
-
-        stage('2. 시간 확인') {
+        stage('Install') {
             steps {
-                sh 'date'
-                echo '현재 시간을 출력했습니다.'
+                echo 'Installing dependencies...'
             }
         }
-
-        stage('3. 파일 읽기') {
+        stage('Test') {
             steps {
-                sh 'cat README.md'
-                echo 'README.md 파일 내용을 읽었습니다.'
+                echo 'Running tests...'
             }
         }
-
-        stage('4. 작업 완료') {
+        stage('Build') {
             steps {
-                echo '모든 작업을 마쳤습니다!'
-                echo '잘 했어요!'
+                echo 'Building application...'
             }
         }
     }
-
     post {
         success {
-            echo '✅ Pipeline 성공적으로 완료!'
+            echo 'Pipeline 성공적으로 완료!'
         }
         failure {
-            echo '❌ Pipeline 실패! 로그를 확인하세요.'
-        }
-        always {
-            echo '📌 빌드가 끝났습니다.'
+            echo 'Pipeline 실패!'
         }
     }
 }
