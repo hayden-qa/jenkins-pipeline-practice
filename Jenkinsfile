@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Checking out source code...'
+                echo '체크체킃케츠케츠케ㅡ..'
             }
         }
         stage('Install') {
